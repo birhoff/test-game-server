@@ -1,0 +1,17 @@
+{
+    "name": "js-task",
+    "version": "0.0.1",
+    "scripts": {
+        "start": "server.js"
+    },
+    "repository": {
+        "type": "git",
+        "url": "git@github.com:birhoff/js-task.git"
+    },
+    "dependencies": {
+        "express": "*",
+        "socket.io": "*",
+        "connect" : "*",
+        "jade" : "*"
+    }
+}
