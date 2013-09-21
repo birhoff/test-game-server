@@ -1,17 +1,16 @@
 {
-    "name": "js-task",
+    "name": "application-name",
     "version": "0.0.1",
+    "private": true,
     "scripts": {
-        "start": "server.js"
-    },
-    "repository": {
-        "type": "git",
-        "url": "git@github.com:birhoff/js-task.git"
+        "start": "node app.js"
     },
     "dependencies": {
-        "express": "*",
-        "socket.io": "*",
-        "connect" : "*",
-        "jade" : "*"
+        "express": "3.3.8",
+        "ejs": "*",
+        "node.extend": "*",
+        "crypto": "*",
+        "nconf": "*",
+        "mongoose": "*"
     }
 }
