@@ -1,15 +1,37 @@
-var User = require('models/user');
+var mongoose = require('lib/mongoose');
+var async = require('async');
 
-var user = User.create({
-    username: "test",
-    email: "test@test.ru",
-    password: "test"
+async.series([
+    open,
+    dropDatabase,
+    createUsers,
+    close
+], function(err) {
+    console.log(arguments);
 });
 
-user.save(function (err, user, affected) {
-    if (err) throw err;
+function open(callback) {
+    mongoose.connection.on('open', callback);
+}
 
-    User.findOne({username: "test"}, function (err, tester) {
-        console.log(tester);
-    });
-});
+function dropDatabase(callback) {
+    var db = mongoose.connection.db;
+    db.dropDatabase(callback);
+}
+
+function createUsers(callback) {
+    require('models/user');
+
+    var users = [
+        {username: 'test', password: 'test', email: 'test@test.ts'}
+    ];
+
+    async.each(users, function(userData, callback) {
+        var user = mongoose.models.User.create(userData);
+        user.save(callback);
+    }, callback);
+}
+
+function close(callback) {
+    mongoose.disconnect(callback);
+}
