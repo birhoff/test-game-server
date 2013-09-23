@@ -11,6 +11,7 @@
         "node.extend": "*",
         "crypto": "*",
         "nconf": "*",
-        "mongoose": "*"
+        "mongoose": "*",
+        "socket.io": "*"
     }
 }
