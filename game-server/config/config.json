@@ -1,0 +1,6 @@
+{
+    "game-server": {
+        "updateWorldInterval": 15,
+        "updateClientsInterval": 50
+    }
+}
